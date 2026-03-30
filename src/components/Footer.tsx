@@ -1,0 +1,92 @@
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import { Globe, MapPin, Phone, ArrowUp } from "lucide-react";
+
+export default function Footer() {
+  return (
+    <footer className="bg-[#031103] py-24 border-t border-white/5 relative overflow-hidden">
+      {/* Background decor */}
+      <div className="absolute top-0 right-10 w-64 h-64 bg-accent/5 blur-[100px] rounded-full pointer-events-none" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          {/* Brand area */}
+          <div className="lg:col-span-5 space-y-10">
+            <Link href="#hero" className="flex items-center gap-4 group">
+              <div className="relative w-16 h-16 overflow-hidden rounded-2xl border-2 border-accent group-hover:rotate-6 transition-transform">
+                <Image 
+                  src="/MLBlogo.webp" 
+                  alt="MLB Logo" 
+                  fill 
+                  className="object-cover"
+                />
+              </div>
+              <span className="text-4xl font-black tracking-tighter text-white italic">
+                MLB<span className="text-accent underline decoration-white/10 decoration-4">AUTO</span>
+              </span>
+            </Link>
+            <p className="text-2xl text-muted/40 font-black italic max-w-sm leading-tight">
+               Márkafüggetlen szerviz. <br />
+               <span className="text-white/60">Budapest Szívében.</span>
+            </p>
+            <div className="pt-6 flex gap-4">
+               <a 
+                 href="https://www.facebook.com/mlbauto/" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-white hover:bg-accent hover:text-black transition-all hover:-translate-y-2"
+               >
+                 <Globe size={28} />
+               </a>
+            </div>
+          </div>
+
+          {/* Nav links */}
+          <div className="lg:col-span-3 space-y-8">
+            <h4 className="text-sm font-black uppercase tracking-[0.3em] text-accent">Navigáció</h4>
+            <nav className="flex flex-col gap-4 text-2xl font-black italic text-white/50 lowercase">
+              <Link href="#miert-mi" className="hover:text-white transition-all hover:translate-x-2 inline-block w-fit">/miért mi?</Link>
+              <Link href="#szolgaltatasok" className="hover:text-white transition-all hover:translate-x-2 inline-block w-fit">/szolgáltatások</Link>
+              <Link href="#velemenyek" className="hover:text-white transition-all hover:translate-x-2 inline-block w-fit">/vélemények</Link>
+              <Link href="#kapcsolat" className="hover:text-white transition-all hover:translate-x-2 inline-block w-fit">/kapcsolat</Link>
+            </nav>
+          </div>
+
+          {/* Contact info */}
+          <div className="lg:col-span-4 space-y-8">
+            <h4 className="text-sm font-black uppercase tracking-[0.3em] text-accent underline decoration-white/10 underline-offset-4 decoration-2">Elérhetőség</h4>
+            <div className="space-y-3">
+              <a href="tel:+36302935766" className="group flex flex-col gap-1 text-3xl font-black italic text-white hover:text-accent transition-colors">
+                <span className="text-[10px] uppercase tracking-widest text-white/20 italic group-hover:text-accent transition-colors">Telefonszám</span>
+                +36 30 293 5766
+              </a>
+              <div className="group flex flex-col gap-1 text-3xl font-black italic text-white">
+                <span className="text-[10px] uppercase tracking-widest text-white/20 italic">Szerviz Címe</span>
+                <span className="text-white/60 leading-tight">1086 Budapest, Lujza utca 16.</span>
+              </div>
+            </div>
+            <button 
+              onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
+              className="mt-8 flex items-center justify-center w-16 h-16 bg-accent rounded-full text-background hover:scale-110 active:scale-95 transition-all shadow-xl shadow-accent/20"
+            >
+              <ArrowUp size={32} strokeWidth={3} />
+            </button>
+          </div>
+        </div>
+
+        <div className="mt-32 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+           <div className="flex flex-col md:flex-row items-center gap-4 text-xs font-black uppercase tracking-widest text-white/20">
+              <p>© {new Date().getFullYear()} MLB Autószerviz.</p>
+              <span className="hidden md:block w-1 h-1 bg-white/20 rounded-full" />
+              <p>Összes jog fenntartva.</p>
+           </div>
+           <p className="text-[10px] font-black uppercase tracking-[0.5em] text-white/10 italic">
+              Crafted by Antigravity AI
+           </p>
+        </div>
+      </div>
+    </footer>
+  );
+}

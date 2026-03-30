@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +18,12 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleCopyNumber = () => {
+    navigator.clipboard.writeText("+36 30 293 5766");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const navLinks = [
     { name: "Kezdőlap", href: "#hero" },
@@ -58,13 +65,13 @@ export default function Header() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full" />
             </Link>
           ))}
-          <a
-            href="tel:+36302935766"
-            className="flex items-center gap-2 bg-accent text-background px-6 py-2.5 rounded-full font-black text-sm hover:shadow-[0_0_20px_rgba(200,255,0,0.4)] transition-all active:scale-95"
+          <button
+            onClick={handleCopyNumber}
+            className="flex items-center gap-2 bg-accent text-background px-6 py-2.5 rounded-full font-black text-sm hover:shadow-[0_0_20px_rgba(200,255,0,0.4)] transition-all active:scale-95 min-w-[160px] justify-center"
           >
             <Phone size={16} fill="currentColor" />
-            +36 30 293 5766
-          </a>
+            {copied ? "Másolva!" : "+36 30 293 5766"}
+          </button>
         </nav>
 
         {/* Mobile Toggle */}
@@ -96,13 +103,13 @@ export default function Header() {
                   {link.name}
                 </Link>
               ))}
-              <a
-                href="tel:+36302935766"
-                className="flex items-center justify-center gap-3 bg-accent text-background px-4 py-4 rounded-2xl font-black text-xl shadow-lg"
+              <button
+                onClick={handleCopyNumber}
+                className="flex items-center justify-center gap-3 bg-accent text-background px-4 py-4 rounded-2xl font-black text-xl shadow-lg active:scale-95 transition-all"
               >
                 <Phone size={24} fill="currentColor" />
-                Hívás: +36 30 293 5766
-              </a>
+                {copied ? "Telefonszám Másolva!" : "Hívás: +36 30 293 5766"}
+              </button>
             </nav>
           </motion.div>
         )}

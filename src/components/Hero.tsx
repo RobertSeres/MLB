@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Phone, Star, ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function Hero() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -12,9 +12,17 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
 
+  const [copied, setCopied] = useState(false);
+
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
   const y = useTransform(scrollYProgress, [0, 0.5], [0, -100]);
+
+  const handleCopyNumber = () => {
+    navigator.clipboard.writeText("+36 30 293 5766");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <section 
@@ -94,14 +102,14 @@ export default function Hero() {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-8"
             >
-              <a
-                href="tel:+36302935766"
-                className="group relative flex items-center gap-4 bg-accent text-background px-8 py-5 md:px-10 md:py-6 rounded-2xl font-black text-xl md:text-2xl hover:scale-105 transition-all shadow-lg md:shadow-[0_20px_50px_rgba(200,255,0,0.3)] overflow-hidden"
+              <button
+                onClick={handleCopyNumber}
+                className="group relative flex items-center gap-4 bg-accent text-background px-8 py-5 md:px-10 md:py-6 rounded-2xl font-black text-xl md:text-2xl hover:scale-105 transition-all shadow-lg md:shadow-[0_20px_50px_rgba(200,255,0,0.3)] overflow-hidden min-w-[280px] justify-center"
               >
                 <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                 <Phone size={24} />
-                Hívjon most!
-              </a>
+                {copied ? "Másolva!" : "Hívjon most!"}
+              </button>
 
               <div className="flex flex-col items-center sm:items-start gap-1 bg-white/5 border border-white/10 px-6 py-3 md:px-8 md:py-4 rounded-xl md:rounded-2xl backdrop-blur-lg">
                 <div className="flex items-center gap-1 text-accent">

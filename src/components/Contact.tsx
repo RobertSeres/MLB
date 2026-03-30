@@ -112,6 +112,7 @@ export default function Contact() {
 
             {/* Opening Hours Table upgraded */}
             <motion.div
+              id="nyitvatartas"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}

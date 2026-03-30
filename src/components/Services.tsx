@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Droplet, CircleDot, Disc, Settings, Search, LayoutGrid, PhoneCall, AlertTriangle, ArrowUpRight } from "lucide-react";
 
@@ -37,6 +38,14 @@ const services = [
 ];
 
 export default function Services() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyNumber = () => {
+    navigator.clipboard.writeText("+36 30 293 5766");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <section id="szolgaltatasok" className="py-fluid-py relative overflow-hidden bg-[#050a05]">
       {/* Subtle Background decor */}
@@ -56,16 +65,16 @@ export default function Services() {
             </p>
           </div>
 
-          <a
-            href="tel:+36302935766"
-            className="group relative flex items-center gap-4 bg-white/3 border border-white/10 px-10 py-5 md:px-12 md:py-6 rounded-2xl hover:bg-accent transition-all duration-500 overflow-hidden"
+          <button
+            onClick={handleCopyNumber}
+            className="group relative flex items-center gap-4 bg-white/3 border border-white/10 px-10 py-5 md:px-12 md:py-6 rounded-2xl hover:bg-accent transition-all duration-500 overflow-hidden min-w-[200px] justify-center"
           >
             <span className="relative z-10 flex items-center gap-3 font-black text-lg md:text-xl uppercase italic group-hover:text-background transition-colors duration-500">
               <PhoneCall size={24} />
-               Hívjon Most!
+               {copied ? "Másolva!" : "Hívjon Most!"}
             </span>
             <div className="absolute inset-0 bg-accent translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-          </a>
+          </button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -102,7 +111,7 @@ export default function Services() {
             </motion.div>
           ))}
           
-          {/* Emergency support card */}
+          {/* Emergency support card upgraded */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -120,7 +129,7 @@ export default function Services() {
                 </div>
              </div>
              <a 
-               href="tel:+36302935766"
+               href="#nyitvatartas"
                className="bg-accent text-background px-10 py-5 rounded-2xl font-black text-2xl italic tracking-tighter hover:scale-105 transition-all shadow-xl shadow-accent/10"
              >
                 AZONNAL SEGÍTÜNK

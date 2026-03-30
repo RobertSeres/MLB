@@ -6,12 +6,15 @@ import Reviews from "@/components/Reviews";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
+import Awards from "@/components/Awards";
+
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Header />
       <Hero />
       <WhyUs />
+      <Awards />
       <Services />
       <Reviews />
       <Contact />

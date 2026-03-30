@@ -43,14 +43,14 @@ export default function Services() {
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/5 blur-[200px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/4" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col md:flex-row items-end justify-between mb-24 gap-12">
-          <div className="max-w-2xl">
-            <h2 className="text-sm font-black uppercase tracking-[0.4em] text-accent mb-6 italic">Szolgáltatásaink</h2>
-            <h3 className="text-6xl md:text-7xl font-black mb-8 leading-[0.9] uppercase italic tracking-tighter">
+        <div className="flex flex-col md:flex-row items-center md:items-end justify-between mb-16 md:mb-24 gap-10 md:gap-12">
+          <div className="max-w-2xl text-center md:text-left">
+            <h2 className="text-xs font-black uppercase tracking-[0.4em] text-accent mb-4 md:mb-6 italic">Szolgáltatásaink</h2>
+            <h3 className="text-5xl md:text-7xl font-black mb-6 md:mb-8 leading-[0.9] uppercase italic tracking-tighter">
                Garázs <br />
-               <span className="text-accent underline decoration-white/5 underline-offset-8">Dinamika.</span>
+               <span className="text-accent underline decoration-white/5 underline-offset-4 md:underline-offset-8">Dinamika.</span>
             </h3>
-            <p className="text-xl md:text-2xl text-white/40 font-medium leading-relaxed">
+            <p className="text-lg md:text-2xl text-white/40 font-medium leading-relaxed px-4 md:px-0">
               Márkafüggetlen szakértelem Budapest szívében. <br className="hidden md:block" />
               Minden hibára van egy profi megoldásunk.
             </p>
@@ -58,9 +58,9 @@ export default function Services() {
 
           <a
             href="tel:+36302935766"
-            className="group relative flex items-center gap-4 bg-white/3 border border-white/10 px-12 py-6 rounded-2xl hover:bg-accent transition-all duration-500 overflow-hidden"
+            className="group relative flex items-center gap-4 bg-white/3 border border-white/10 px-10 py-5 md:px-12 md:py-6 rounded-2xl hover:bg-accent transition-all duration-500 overflow-hidden"
           >
-            <span className="relative z-10 flex items-center gap-3 font-black text-xl uppercase italic group-hover:text-background transition-colors duration-500">
+            <span className="relative z-10 flex items-center gap-3 font-black text-lg md:text-xl uppercase italic group-hover:text-background transition-colors duration-500">
               <PhoneCall size={24} />
                Hívjon Most!
             </span>

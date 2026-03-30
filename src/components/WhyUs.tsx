@@ -45,9 +45,9 @@ export default function WhyUs() {
       {/* Background gear animation */}
       <motion.div 
         style={{ rotate }}
-        className="absolute -top-24 -left-24 text-accent/5 opacity-[0.03] pointer-events-none"
+        className="absolute -top-12 -left-12 md:-top-24 md:-left-24 text-accent/5 opacity-[0.03] pointer-events-none"
       >
-        <Cog size={400} strokeWidth={1} />
+        <Cog className="w-[200px] h-[200px] md:w-[400px] md:h-[400px]" strokeWidth={1} />
       </motion.div>
 
       <div className="container mx-auto px-4 relative z-10">

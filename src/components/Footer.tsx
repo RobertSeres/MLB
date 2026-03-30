@@ -6,7 +6,7 @@ import { Globe, MapPin, Phone, ArrowUp } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#031103] py-24 border-t border-white/5 relative overflow-hidden">
+    <footer className="bg-[#030803] py-24 border-t border-white/5 relative overflow-hidden">
       {/* Background decor */}
       <div className="absolute top-0 right-10 w-64 h-64 bg-accent/5 blur-[100px] rounded-full pointer-events-none" />
 
@@ -15,21 +15,18 @@ export default function Footer() {
           {/* Brand area */}
           <div className="lg:col-span-5 space-y-10">
             <Link href="#hero" className="flex items-center gap-4 group">
-              <div className="relative w-16 h-16 overflow-hidden rounded-2xl border-2 border-accent group-hover:rotate-6 transition-transform">
+              <div className="relative w-32 h-16 overflow-hidden transition-all duration-300">
                 <Image 
                   src="/MLBlogo.webp" 
                   alt="MLB Logo" 
                   fill 
-                  className="object-cover"
+                  className="object-contain group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
-              <span className="text-4xl font-black tracking-tighter text-white italic">
-                MLB<span className="text-accent underline decoration-white/10 decoration-4">AUTO</span>
-              </span>
             </Link>
-            <p className="text-2xl text-muted/40 font-black italic max-w-sm leading-tight">
+            <p className="text-2xl text-white/40 font-black italic max-w-sm leading-tight">
                Márkafüggetlen szerviz. <br />
-               <span className="text-white/60">Budapest Szívében.</span>
+               <span className="text-accent underline decoration-white/10 underline-offset-8">Budapest Szívében.</span>
             </p>
             <div className="pt-6 flex gap-4">
                <a 
@@ -45,7 +42,7 @@ export default function Footer() {
 
           {/* Nav links */}
           <div className="lg:col-span-3 space-y-8">
-            <h4 className="text-sm font-black uppercase tracking-[0.3em] text-accent">Navigáció</h4>
+            <h4 className="text-sm font-black uppercase tracking-[0.3em] text-accent italic">Navigáció</h4>
             <nav className="flex flex-col gap-4 text-2xl font-black italic text-white/50 lowercase">
               <Link href="#miert-mi" className="hover:text-white transition-all hover:translate-x-2 inline-block w-fit">/miért mi?</Link>
               <Link href="#szolgaltatasok" className="hover:text-white transition-all hover:translate-x-2 inline-block w-fit">/szolgáltatások</Link>
@@ -56,8 +53,8 @@ export default function Footer() {
 
           {/* Contact info */}
           <div className="lg:col-span-4 space-y-8">
-            <h4 className="text-sm font-black uppercase tracking-[0.3em] text-accent underline decoration-white/10 underline-offset-4 decoration-2">Elérhetőség</h4>
-            <div className="space-y-3">
+            <h4 className="text-sm font-black uppercase tracking-[0.3em] text-accent underline decoration-white/10 underline-offset-4 decoration-2 italic">Elérhetőség</h4>
+            <div className="space-y-6">
               <a href="tel:+36302935766" className="group flex flex-col gap-1 text-3xl font-black italic text-white hover:text-accent transition-colors">
                 <span className="text-[10px] uppercase tracking-widest text-white/20 italic group-hover:text-accent transition-colors">Telefonszám</span>
                 +36 30 293 5766
@@ -82,8 +79,8 @@ export default function Footer() {
               <span className="hidden md:block w-1 h-1 bg-white/20 rounded-full" />
               <p>Összes jog fenntartva.</p>
            </div>
-           <p className="text-[10px] font-black uppercase tracking-[0.5em] text-white/10 italic">
-              Crafted by Antigravity AI
+           <p className="text-[10px] font-black uppercase tracking-[0.5em] text-white/5 italic">
+              Budapest VIII. kerület
            </p>
         </div>
       </div>

@@ -1,8 +1,66 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ExternalLink, Trophy, Star, Award } from "lucide-react";
+
+/**
+ * Award Carousel Component
+ * Shows 3 items at a time and slides/jumps every 2 seconds.
+ */
+function AwardCarousel({ items }: { items: any[] }) {
+  const [index, setIndex] = useState(0);
+  const itemsPerView = 3;
+  const maxIndex = Math.max(0, items.length - itemsPerView);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+    }, 2000);
+    return () => clearInterval(timer);
+  }, [maxIndex]);
+
+  return (
+    <div className="relative overflow-hidden w-full group">
+      <div 
+        className="flex gap-4 transition-all duration-700 ease-in-out"
+        style={{ 
+          transform: `translateX(-${index * (100 / itemsPerView + 1)}%)`
+        }}
+      >
+        {items.map((award, idx) => (
+          <div
+            key={idx}
+            className="w-[calc(33.33%-12px)] flex-shrink-0"
+          >
+            <div className="group relative aspect-square bg-white/3 border border-white/5 rounded-2xl flex flex-col items-center justify-center p-2 hover:bg-white/5 hover:border-accent/30 transition-all shadow-xl">
+              <div className="relative w-full h-full">
+                <Image 
+                  src={award.img} 
+                  alt={`${award.type} ${award.year}`} 
+                  fill 
+                  className="object-contain p-2 group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="absolute inset-0 bg-accent/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      {/* Navigation dots (optional but adds to 'pro' feel) */}
+      <div className="flex justify-center gap-1 mt-6">
+        {[...Array(maxIndex + 1)].map((_, i) => (
+          <div 
+            key={i} 
+            className={`h-1 transition-all duration-300 rounded-full ${i === index ? "w-6 bg-accent" : "w-2 bg-white/10"}`} 
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 const aranyVallalkozasAwards = [
   { year: "2025", type: "Highest Rated", img: "https://www.aranyvallalkozas.eu/build/images/badges/Top_rated_2025.349f4fda.png" },
@@ -11,6 +69,8 @@ const aranyVallalkozasAwards = [
   { year: "2024", type: "Golden 5", img: "https://www.aranyvallalkozas.eu/build/images/badges/Top_10_2024.95193079.png" },
   { year: "2023", type: "Highest Rated", img: "https://www.aranyvallalkozas.eu/build/images/badges/Top_rated_2023.7896ee66.png" },
   { year: "2023", type: "Golden 5", img: "https://www.aranyvallalkozas.eu/build/images/badges/Top_10_2023.aabd87b8.png" },
+  { year: "2022", type: "Highest Rated", img: "https://www.aranyvallalkozas.eu/build/images/badges/Top_rated_2022.d6b0105c.png" },
+  { year: "2022", type: "Golden 5", img: "https://www.aranyvallalkozas.eu/build/images/badges/Top_10_2022.b07e81b2.png" },
 ];
 
 const turulAwards = [
@@ -41,11 +101,11 @@ export default function Awards() {
             Elismert Minőség
             <Award size={16} />
           </motion.div>
-          <h2 className="text-fluid-7xl font-black mb-8 leading-[0.9] uppercase italic tracking-tighter">
+          <h2 className="text-4xl md:text-7xl font-black mb-8 leading-[0.9] uppercase italic tracking-tighter">
             Díjazott <br />
             <span className="text-accent underline decoration-white/10 underline-offset-4 md:underline-offset-8">Szakértelem.</span>
           </h2>
-          <p className="text-fluid-xl text-white/40 font-medium leading-relaxed">
+          <p className="text-lg md:text-2xl text-white/40 font-medium leading-relaxed max-w-2xl mx-auto">
             Folyamatos elismerés és kiemelkedő ügyfél-elégedettség <br className="hidden md:block" />
             2022 óta az ország legjobbjai között.
           </p>
@@ -69,32 +129,7 @@ export default function Awards() {
               </a>
             </div>
             
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 gap-4 md:gap-6">
-              {aranyVallalkozasAwards.map((award, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.05 }}
-                  className="group relative aspect-square bg-white/3 border border-white/5 rounded-2xl flex flex-col items-center justify-center p-2 hover:bg-white/5 hover:border-accent/30 transition-all shadow-xl"
-                >
-                  <div className="relative w-full h-full">
-                    <Image 
-                      src={award.img} 
-                      alt={`${award.type} ${award.year}`} 
-                      fill 
-                      className="object-contain p-2 group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-accent/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                </motion.div>
-              ))}
-              <div className="aspect-square bg-accent/5 border border-accent/20 rounded-2xl flex flex-col items-center justify-center p-2">
-                 <p className="text-accent font-black text-xs md:text-sm">2022-2025</p>
-                 <Star className="text-accent mt-1" size={16} fill="currentColor" />
-              </div>
-            </div>
+            <AwardCarousel items={aranyVallalkozasAwards} />
           </div>
 
           {/* Turul Awards Group */}
@@ -114,31 +149,7 @@ export default function Awards() {
               </a>
             </div>
 
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 gap-4 md:gap-6">
-              {turulAwards.map((award, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.05 }}
-                  className="group relative aspect-square bg-white/3 border border-white/5 rounded-2xl flex flex-col items-center justify-center p-2 hover:bg-white/5 hover:border-accent/30 transition-all shadow-xl"
-                >
-                  <div className="relative w-full h-full">
-                    <Image 
-                      src={award.img} 
-                      alt={`${award.type} ${award.year}`} 
-                      fill 
-                      className="object-contain p-2 group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-accent/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                </motion.div>
-              ))}
-              <div className="aspect-square bg-white/5 border border-white/10 rounded-2xl flex flex-col items-center justify-center p-4">
-                <p className="text-white/20 font-black text-[10px] uppercase tracking-widest text-center">Éves <br /> Arany</p>
-              </div>
-            </div>
+            <AwardCarousel items={turulAwards} />
           </div>
         </div>
 

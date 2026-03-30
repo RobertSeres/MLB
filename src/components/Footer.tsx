@@ -2,15 +2,31 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Globe, MapPin, Phone, ArrowUp } from "lucide-react";
+import { MapPin, Phone, ArrowUp } from "lucide-react";
+
+const FacebookIcon = ({ size = 24, className = "" }) => (
+  <svg 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+  </svg>
+);
 
 export default function Footer() {
   return (
-    <footer className="bg-[#030803] py-24 border-t border-white/5 relative overflow-hidden">
+    <footer className="bg-[#030803] py-fluid-py border-t border-white/5 relative overflow-hidden">
       {/* Background decor */}
       <div className="absolute top-0 right-10 w-64 h-64 bg-accent/5 blur-[100px] rounded-full pointer-events-none" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-fluid-px relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           {/* Brand area */}
           <div className="lg:col-span-5 space-y-10">
@@ -24,7 +40,7 @@ export default function Footer() {
                 />
               </div>
             </Link>
-            <p className="text-2xl text-white/40 font-black italic max-w-sm leading-tight">
+            <p className="text-fluid-xl text-white/40 font-black italic max-w-sm leading-tight">
                Márkafüggetlen szerviz. <br />
                <span className="text-accent underline decoration-white/10 underline-offset-8">Budapest Szívében.</span>
             </p>
@@ -35,7 +51,7 @@ export default function Footer() {
                  rel="noopener noreferrer" 
                  className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-white hover:bg-accent hover:text-black transition-all hover:-translate-y-2"
                >
-                 <Globe size={28} />
+                 <FacebookIcon size={28} />
                </a>
             </div>
           </div>

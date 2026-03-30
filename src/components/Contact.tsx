@@ -1,7 +1,23 @@
 "use client";
 
-import { MapPin, Phone, Clock, Globe, Compass, Navigation } from "lucide-react";
+import { MapPin, Phone, Clock, Compass, Navigation } from "lucide-react";
 import { motion } from "framer-motion";
+
+const FacebookIcon = ({ size = 24, className = "" }) => (
+  <svg 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+  </svg>
+);
 
 export default function Contact() {
   const openingHours = [
@@ -15,11 +31,11 @@ export default function Contact() {
   ];
 
   return (
-    <section id="kapcsolat" className="py-32 relative overflow-hidden bg-[#051a05]">
+    <section id="kapcsolat" className="py-fluid-py relative overflow-hidden bg-[#051a05]">
       {/* Background radial gradient */}
       <div className="absolute -bottom-1/4 left-1/2 -translate-x-1/2 w-full h-[800px] bg-accent/2 blur-[200px] rounded-full pointer-events-none" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-fluid-px relative z-10">
         <div className="mb-24 flex flex-col lg:flex-row lg:items-end justify-between gap-12">
           <div className="max-w-2xl text-center lg:text-left">
             <h2 className="text-5xl md:text-8xl font-black mb-8 italic uppercase leading-[0.9]">
@@ -35,7 +51,7 @@ export default function Contact() {
              initial={{ opacity: 0, scale: 0.9 }}
              whileInView={{ opacity: 1, scale: 1 }}
              viewport={{ once: true }}
-             className="bg-accent p-10 rounded-[48px] text-background flex flex-col items-center gap-4 shadow-3xl shadow-accent/20"
+             className="bg-accent p-fluid-px rounded-[48px] text-background flex flex-col items-center gap-4 shadow-3xl shadow-accent/20"
           >
              <p className="text-4xl font-black italic tracking-tighter uppercase leading-none">Azonnal.</p>
              <a 
@@ -55,7 +71,7 @@ export default function Contact() {
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-card/40 backdrop-blur-3xl p-12 rounded-[56px] border border-white/5 space-y-12 shadow-2xl relative overflow-hidden group"
+              className="bg-card/40 backdrop-blur-3xl p-fluid-px rounded-[56px] border border-white/5 space-y-fluid-px shadow-2xl relative overflow-hidden group"
             >
               <div className="flex items-start gap-8">
                 <div className="w-20 h-20 bg-accent rounded-[32px] flex items-center justify-center text-background shrink-0 group-hover:rotate-12 transition-transform shadow-xl">
@@ -78,7 +94,7 @@ export default function Contact() {
 
               <div className="flex items-start gap-8">
                 <div className="w-20 h-20 bg-accent/10 rounded-[32px] border border-accent/20 flex items-center justify-center text-accent shrink-0 group-hover:-rotate-12 transition-transform">
-                  <Globe size={40} strokeWidth={1.5} />
+                  <FacebookIcon size={40} />
                 </div>
                 <div>
                   <h3 className="text-2xl font-black mb-2 uppercase italic tracking-tighter">Facebook</h3>
@@ -100,7 +116,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="bg-accent p-12 rounded-[56px] text-background shadow-2xl relative group overflow-hidden"
+              className="bg-accent p-fluid-px rounded-[56px] text-background shadow-2xl relative group overflow-hidden"
             >
               <div className="absolute top-4 right-10 opacity-10 rotate-12 group-hover:rotate-45 transition-transform duration-700">
                 <Clock size={200} strokeWidth={5} />

@@ -17,6 +17,17 @@
   --color-muted: var(--muted);
   --color-card: var(--card);
 
+  /* Fluid Typography */
+  --font-size-fluid-9xl: clamp(3.5rem, 2rem + 8vw, 8rem);
+  --font-size-fluid-7xl: clamp(2.5rem, 1.5rem + 6vw, 5rem);
+  --font-size-fluid-5xl: clamp(2rem, 1.25rem + 4vw, 4rem);
+  --font-size-fluid-3xl: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  --font-size-fluid-xl: clamp(1.125rem, 0.9rem + 1vw, 1.5rem);
+
+  /* Fluid Spacing */
+  --spacing-fluid-px: clamp(1.25rem, 0.75rem + 3vw, 3.5rem);
+  --spacing-fluid-py: clamp(4rem, 2rem + 6vw, 10rem);
+
   --animate-spin-slow: spin 20s linear infinite;
   --animate-reverse-spin: reverse-spin 15s linear infinite;
 

@@ -38,25 +38,25 @@ export default function Reviews() {
   const [hoveredStar, setHoveredStar] = useState(0);
 
   return (
-    <section id="velemenyek" className="py-24 relative overflow-hidden bg-card/30">
+    <section id="velemenyek" className="py-fluid-py relative overflow-hidden bg-card/30">
       {/* Decorative mechanical gear in background */}
       <div className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 scale-150 rotate-45 text-accent/2 opacity-[0.03] pointer-events-none">
         <ThumbsUp size={800} />
       </div>
 
-      <div className="container mx-auto px-4 z-10 relative">
-        <div className="flex flex-col lg:flex-row items-end justify-between mb-20 gap-8">
-          <div className="max-w-2xl text-left">
-            <div className="flex items-center gap-1 text-accent mb-6 animate-pulse">
+      <div className="container mx-auto px-fluid-px z-10 relative">
+        <div className="flex flex-col lg:flex-row items-center lg:items-end justify-between mb-16 md:mb-20 gap-8 md:gap-12">
+          <div className="max-w-2xl text-center lg:text-left flex flex-col items-center lg:items-start">
+            <div className="flex items-center gap-1.5 text-accent mb-6 md:mb-8 animate-pulse">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} size={28} fill="currentColor" stroke="none" />
               ))}
             </div>
-            <h2 className="text-4xl md:text-6xl font-black mb-6 leading-tight uppercase italic underline decoration-accent/20 underline-offset-10 decoration-8">
+            <h2 className="text-4xl md:text-7xl font-black mb-6 md:mb-8 leading-[0.9] uppercase italic tracking-tighter">
               Ügyfeleink <br />
-              <span className="text-accent underline-none">Élménynaplója</span>
+              <span className="text-accent underline decoration-white/10 underline-offset-4 md:underline-offset-8">Élménynaplója</span>
             </h2>
-            <p className="text-xl md:text-2xl text-muted/60 font-medium">
+            <p className="text-lg md:text-2xl text-white/40 font-medium leading-relaxed px-4 lg:px-0">
               49+ vélemény után is tartjuk az <span className="text-accent font-black italic">5 csillagos</span> átlagot.
             </p>
           </div>
@@ -80,7 +80,7 @@ export default function Reviews() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
-              className="bg-card/40 backdrop-blur-md p-10 rounded-[48px] border border-white/5 relative group hover:border-accent/30 transition-all shadow-xl hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
+              className="bg-card/40 backdrop-blur-md p-fluid-px rounded-[48px] border border-white/5 relative group hover:border-accent/30 transition-all shadow-xl hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
             >
               <Quote 
                 className="absolute top-8 right-10 text-accent/5 group-hover:text-accent/20 transition-all duration-500 scale-[2]" 

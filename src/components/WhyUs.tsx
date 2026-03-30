@@ -41,7 +41,7 @@ export default function WhyUs() {
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
 
   return (
-    <section ref={containerRef} id="miert-mi" className="py-32 relative overflow-hidden bg-[#051a05]">
+    <section ref={containerRef} id="miert-mi" className="py-fluid-py relative overflow-hidden bg-[#051a05]">
       {/* Background gear animation */}
       <motion.div 
         style={{ rotate }}
@@ -50,8 +50,8 @@ export default function WhyUs() {
         <Cog className="w-[200px] h-[200px] md:w-[400px] md:h-[400px]" strokeWidth={1} />
       </motion.div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between mb-24 gap-12">
+      <div className="container mx-auto px-fluid-px relative z-10">
+        <div className="flex flex-col lg:flex-row items-center justify-between mb-16 md:mb-24 gap-12">
           <div className="max-w-xl text-center lg:text-left">
             <motion.h2
               initial={{ opacity: 0, x: -50 }}
@@ -88,7 +88,7 @@ export default function WhyUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15, duration: 0.8 }}
-              className="group relative flex items-start gap-8 bg-card/20 p-10 rounded-[48px] border border-white/5 hover:border-accent/40 transition-all hover:bg-card/40 overflow-hidden shadow-2xl"
+              className="group relative flex flex-col md:flex-row items-start gap-8 bg-card/20 p-fluid-px rounded-[48px] border border-white/5 hover:border-accent/40 transition-all hover:bg-card/40 overflow-hidden shadow-2xl"
             >
               <div className="shrink-0 w-24 h-24 bg-accent/10 rounded-[32px] flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-background transition-all duration-500 shadow-xl group-hover:shadow-accent/20">
                 <usp.icon size={44} strokeWidth={1.5} />

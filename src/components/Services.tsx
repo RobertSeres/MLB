@@ -38,11 +38,11 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="szolgaltatasok" className="py-32 relative overflow-hidden bg-[#050a05]">
+    <section id="szolgaltatasok" className="py-fluid-py relative overflow-hidden bg-[#050a05]">
       {/* Subtle Background decor */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/5 blur-[200px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/4" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-fluid-px relative z-10">
         <div className="flex flex-col md:flex-row items-center md:items-end justify-between mb-16 md:mb-24 gap-10 md:gap-12">
           <div className="max-w-2xl text-center md:text-left">
             <h2 className="text-xs font-black uppercase tracking-[0.4em] text-accent mb-4 md:mb-6 italic">Szolgáltatásaink</h2>
@@ -76,7 +76,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
-              className="group bg-white/2 border border-white/5 p-10 rounded-3xl hover:bg-white/5 hover:border-accent/40 transition-all duration-500 relative overflow-hidden"
+              className="group bg-white/2 border border-white/5 p-fluid-px rounded-3xl hover:bg-white/5 hover:border-accent/40 transition-all duration-500 relative overflow-hidden"
             >
               <div className="flex items-center justify-between mb-10">
                 <div className="w-20 h-20 bg-white/5 rounded-2xl flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-background transition-all duration-500 shadow-2xl">
@@ -108,7 +108,7 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="group lg:col-span-3 bg-linear-to-br from-accent/10 to-transparent border border-accent/20 p-12 rounded-3xl flex flex-col lg:flex-row items-center justify-between gap-10 hover:border-accent/40 transition-all duration-500"
+            className="group lg:col-span-3 bg-linear-to-br from-accent/10 to-transparent border border-accent/20 p-fluid-px rounded-3xl flex flex-col lg:flex-row items-center justify-between gap-10 hover:border-accent/40 transition-all duration-500"
           >
              <div className="flex items-center gap-8">
                 <div className="w-24 h-24 bg-accent rounded-2xl flex items-center justify-center text-background shadow-2xl shadow-accent/20">
